@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머</title>
+    <link rel="stylesheet" href="timer.css" />
+  </head>
+  <body>
+
+    <div class="back">
+      <a href="/home.html">
+        <img src="/images/back-button.png" />
+      </a>
+    </div>
+
+    <div class="selectTime">
+      <div class="select fiveMinutes" onclick="setTimer(5)">5</div>
+      <div class="select tenMinutes" onclick="setTimer(10)">10</div>
+      <div class="select thirtyMinutes" onclick="setTimer(30)">30</div>
+    </div>
+
+    <div id="countdown"></div>
+
+    <div class="container">
+      <div class="timer">
+        <div class="time">
+          <h2 id="minutes">00</h2>
+          <h2>:</h2>
+        </div>
+        <div class="time">
+          <h2 id="seconds">00</h2>
+          <h2>:</h2>
+        </div>
+        <div class="time">
+          <h2 id="milliseconds">00</h2>
+        </div>
+      </div>
+
+      <div class="controller">
+        <img class="play" onclick="startTimer()" src="/images/free-icon-play-727245.png" />
+        <img class="pause" onclick="pauseTimer()" src="/images/free-icon-play-7376830.png" />
+        <img
+          class="reset" onclick="resetTimer()"
+          src="/images/free-icon-stop-button-black-rounded-square-26518.png"
+        />
+      </div>
+    </div>
+
+    <script src="timer.js"></script>
+  </body>
+</html>

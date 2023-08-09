@@ -1,0 +1,93 @@
+@import url('https://fonts.cdnfonts.com/css/digital-numbers');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.back img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  width: 50px;
+}
+
+.selectTime {
+  position : absolute;
+  top: 0;
+  right: 0;
+  margin : 20px 20px 0;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.select {
+  width: 100px;
+  border: 1px solid rgb(63, 63, 63);
+  border-radius: 50px;
+  font-size: 30px;
+  color: rgb(65, 65, 65);
+  cursor: pointer;
+  padding: 10px;
+}
+
+.select:hover {
+  background-color: rgb(135, 135, 135);
+  color: rgb(255, 255, 255);
+}
+
+.tenMinutes {
+  margin: 0 30px;
+}
+
+.play,
+.pause,
+.reset {
+  width: 50px;
+  cursor: pointer;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Digital Numbers', sans-serif;
+}
+
+.time h2 {
+  font-size: 80px;
+  margin: 0px 0 80px;
+  color: black;
+}
+
+.controller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pause {
+  margin: 0 50px;
+}
+
+.reset {
+  width: 47px;
+}

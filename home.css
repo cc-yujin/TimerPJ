@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'KCC-Ganpan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.container {
+  font-family: 'KCC-Ganpan';
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+button:hover {
+  box-shadow: 0 0px 13px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.151);
+}
+
+button h1 {
+  font-family: 'KCC-Ganpan';
+  color: rgb(65, 65, 65);
+}
+
+.btn {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 20px;
+  margin: 0 20px;
+}
+
+.stopWatch {
+  background-color: #d4e2d4;
+}
+
+.newYearCounter {
+  background-color: #ffcacc;
+}
+
+.suneungCounter {
+  background-color: #dbc4f0;
+}
