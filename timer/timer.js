@@ -1,7 +1,5 @@
 // 시간 셋팅
-const setFiveMinutes = document.querySelector('.fiveMinutes');
-const setTenMinutes = document.querySelector('.tenMinutes');
-const setThirtyMinutes = document.querySelector('.thirtyMinutes');
+const selectTime = document.querySelector('.selectTime');
 
 // 분 : 초 : 밀리초
 const minutes = document.querySelector('#minutes');
@@ -9,6 +7,8 @@ const seconds = document.querySelector('#seconds');
 const milliseconds = document.querySelector('#milliseconds');
 
 // 컨트롤러
+const handleTimer = document.querySelector('.controller'); //adEventListener로 고쳐보기 고안중
+
 const start = document.querySelector('.start');
 const stop = document.querySelector('.stop');
 const reset = document.querySelector('.reset');
@@ -24,22 +24,25 @@ window.onload = function () {
   }
 };
 
-function setTimer(min) {
-  clearInterval(countdownInterval); 
+function setTimer(e) {
+  clearInterval(countdownInterval);
 
-  if(min === 5){
+  if(e.target.classList.contains('fiveMinutes')) {
     minutes.innerHTML = '05';
+  } else if (e.target.classList.contains('tenMinutes')){
+    minutes.innerHTML = '10';
+  } else {
+    minutes.innerHTML = '30';
   }
-  minutes.innerHTML = min;
+
   seconds.innerHTML = '00';
   milliseconds.innerHTML = '00';
 
   time = minutes.innerHTML * 60 * 1000; //밀리초
-  localStorage.setItem('savedTime', time); 
+  localStorage.setItem('savedTime', time);
 }
 
 function updateCountdown() {
-  
   const m = Math.floor(time / 1000 / 60) % 60;
   const s = Math.floor(time / 100) % 60;
   const ms = Math.floor(time % 100);
@@ -55,8 +58,10 @@ function updateCountdown() {
   time--;
 }
 
+selectTime.addEventListener('click', setTimer);
 
 //컨트롤러
+
 function startTimer() {
   if (minutes.innerHTML !== '00') {
     countdownInterval = setInterval(updateCountdown, 10);
@@ -69,9 +74,9 @@ function pauseTimer() {
 
 function resetTimer() {
   clearInterval(countdownInterval);
-  
+
   minutes.innerHTML = '00';
   seconds.innerHTML = '00';
-  milliseconds.innerHTML ='00';
+  milliseconds.innerHTML = '00';
 }
 

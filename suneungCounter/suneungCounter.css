@@ -44,6 +44,14 @@ img {
   align-items: center;
 }
 
+h1 {
+  font-size: 50px;
+}
+
+.time h2 {
+  font-size: 40px;
+}
+
 small {
   font-size: 15px;
   padding: 0 10px;
