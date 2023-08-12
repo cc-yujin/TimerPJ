@@ -17,7 +17,8 @@ function suneungDayCounter() {
   const h = Math.floor(diff / 1000 / 60 / 60) % 24;
   const m = Math.floor(diff / 1000 / 60) % 60;
   const s = Math.floor(diff / 1000) % 60;
-  const ms = Math.floor(diff /100) % 100;
+  const ms = Math.floor(diff % 1000 / 10) ;
+
 
   nextYear.innerHTML = `${currentYear + 1}`;
 
@@ -34,4 +35,4 @@ function suneungDayCounter() {
   milliseconds.innerHTML = ms < 10 ? '0' + ms : ms;
 }
 
-setInterval(suneungDayCounter, 100);
+setInterval(suneungDayCounter, 1);

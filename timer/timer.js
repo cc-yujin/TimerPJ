@@ -10,11 +10,11 @@ const milliseconds = document.querySelector('#milliseconds');
 const handleTimer = document.querySelector('.controller'); //adEventListener로 고쳐보기 고안중
 
 const start = document.querySelector('.start');
-const stop = document.querySelector('.stop');
+const pause = document.querySelector('.pause');
 const reset = document.querySelector('.reset');
 
 let time = 0;
-let countdownInterval;
+let countdownInterval = null;
 
 window.onload = function () {
   const savedTime = localStorage.getItem('savedTime');
@@ -24,17 +24,21 @@ window.onload = function () {
   }
 };
 
-function setTimer(e) {
+function stopTimer() {
   clearInterval(countdownInterval);
+  countdownInterval = null;
+}
 
-  if(e.target.classList.contains('fiveMinutes')) {
+function setTimer(e) {
+  stopTimer();
+
+  if (e.target.classList.contains('fiveMinutes')) {
     minutes.innerHTML = '05';
-  } else if (e.target.classList.contains('tenMinutes')){
+  } else if (e.target.classList.contains('tenMinutes')) {
     minutes.innerHTML = '10';
   } else {
     minutes.innerHTML = '30';
   }
-
   seconds.innerHTML = '00';
   milliseconds.innerHTML = '00';
 
@@ -59,24 +63,33 @@ function updateCountdown() {
 }
 
 selectTime.addEventListener('click', setTimer);
+start.addEventListener('click', startTimer);
+pause.addEventListener('click', pauseTimer);
+reset.addEventListener('click', resetTimer);
 
 //컨트롤러
 
 function startTimer() {
-  if (minutes.innerHTML !== '00') {
-    countdownInterval = setInterval(updateCountdown, 10);
+  if (countdownInterval !== null) return;
+  if (
+    minutes.textContent === '00' &&
+    seconds.textContent === '00' &&
+    milliseconds.textContent === '00'
+  ) {
+    return;
   }
+  countdownInterval = setInterval(updateCountdown, 10);
 }
 
 function pauseTimer() {
-  clearInterval(countdownInterval);
+  stopTimer();
+
 }
 
 function resetTimer() {
-  clearInterval(countdownInterval);
+  stopTimer();
 
   minutes.innerHTML = '00';
   seconds.innerHTML = '00';
   milliseconds.innerHTML = '00';
 }
-
